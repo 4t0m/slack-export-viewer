@@ -1,0 +1,2 @@
+1. no thread div on index route?
+2. somehow doesn't seem to be getting all threads

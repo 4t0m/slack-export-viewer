@@ -12,9 +12,13 @@ app = flask.Flask(
 def channel_name(name):
     messages = flask._app_ctx_stack.channels[name]
     channels = list(flask._app_ctx_stack.channels.keys())
-    return flask.render_template("viewer.html", messages=messages,
+    root_messages = messages['root_messages']
+    threads = messages['threads'].items()
+    
+    return flask.render_template("viewer.html", root_messages=root_messages,
                                  name=name.format(name=name),
-                                 channels=sorted(channels))
+                                 channels=sorted(channels),
+                                 threads=threads)
 
 
 @app.route("/")

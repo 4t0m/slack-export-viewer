@@ -7,7 +7,7 @@
           href="{{ url_for('static', filename='viewer.css') }}">
 </head>
 <body>
-<div id="fixed">
+<div id="col-1">
     <h3>Channels</h3>
     <ul id="channel-list">
         {% for channel in channels %}
@@ -19,8 +19,8 @@
         {% endfor %}
     </ul>
 </div>
-<div class="messages" id="fluid">
-    {% for message in messages %}
+<div class="messages" id="col-2">
+    {% for message in root_messages %}
         <div>
           <div id="{{ message.id }}">
             <img src="{{ message.img }}"/>
@@ -34,20 +34,13 @@
         <br/>
     {% endfor %}
 </div>
-<div class="thread" id="fluid-2">
-    {% for message in messages %}
-        <div>
-          <div id="{{ message.id }}">
-            <img src="{{ message.img }}"/>
-            <div class="message">
-                <div class="username">{{ message.username }}</div>
-                <a href="#{{ message.id}}"><div class="time">{{ message.time }}</div></a>
-                <div class="msg">{{ message.msg|safe }}</div>
-            </div>
-          </div>
-        </div>
-        <br/>
-    {% endfor %}
+<div class="thread" id="col-3">
+  <span>THREAD</span>
+  {% for thread in threads %}
+    <div>
+      <p>{{thread[1][0].msg|safe}}</p>
+    </div>
+  {% endfor %}
 </div>
 </body>
 </html>

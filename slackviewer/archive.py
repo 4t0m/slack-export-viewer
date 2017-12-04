@@ -10,21 +10,35 @@ from slackviewer.message import Message
 def get_channel_list(path):
     return [c["name"] for c in get_channels(path).values()]
 
+def is_root_message(message):
+    return not 'parent_user_id' in message
+
+def is_in_thread(message):
+    return 'thread_ts' in message
 
 def compile_channels(path, user_data, channel_data):
     channels = get_channel_list(path)
     chats = {}
     for channel in channels:
         channel_dir_path = os.path.join(path, channel)
-        messages = []
+        root_messages = []
+        threads = {}
+
         day_files = glob.glob(os.path.join(channel_dir_path, "*.json"))
         if not day_files:
             continue
         for day in sorted(day_files):
             with open(os.path.join(path, day)) as f:
                 day_messages = json.load(f)
-                messages.extend([Message(user_data, channel_data, d) for d in
-                                 day_messages])
+                for message in day_messages:
+                    if is_root_message(message):
+                        if is_in_thread(message):
+                            threads[message['ts']] = [Message(user_data, channel_data, message)]
+                        root_messages.append(Message(user_data, channel_data, message))
+                    else:
+                        threads[message['thread_ts']].append(Message(user_data, channel_data, message))
+
+        messages = {'root_messages': root_messages, 'threads': threads}
         chats[channel] = messages
     return chats
 

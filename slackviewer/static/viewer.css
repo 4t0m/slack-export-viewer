@@ -9,7 +9,7 @@ body {
     flex-direction: row;
 }
 
-#fixed {
+#col-1 {
     /*position: fixed;
     top: 0;
     bottom: 0;
@@ -28,21 +28,21 @@ body {
     overflow-x: auto;*/
 }
 
-#fixed a {
+#col-1 a {
     color: white;
 }
 
-#fixed h3 {
+#col-1 h3 {
     color: white;
 }
 
-#fluid {
+#col-2 {
     /*position: relative;*/
     /*z-index: 1;*/
     width: 40%;
 }
 
-#fluid-2 {
+#col-3 {
     width: 20%;
     /*position: relative;
     z-index: 4;*/
