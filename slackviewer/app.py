@@ -13,12 +13,22 @@ def channel_name(name):
     messages = flask._app_ctx_stack.channels[name]
     channels = list(flask._app_ctx_stack.channels.keys())
     root_messages = messages['root_messages']
-    threads = messages['threads'].items()
-    
+
+    return flask.render_template("viewer.html", root_messages=root_messages,
+                                 name=name.format(name=name),
+                                 channels=sorted(channels))
+
+@app.route("/channel/<name>/<thread_id>")
+def channel_thread(name, thread_id):
+    messages = flask._app_ctx_stack.channels[name]
+    channels = list(flask._app_ctx_stack.channels.keys())
+    root_messages = messages['root_messages']
+    thread = messages['threads'][thread_id]
+
     return flask.render_template("viewer.html", root_messages=root_messages,
                                  name=name.format(name=name),
                                  channels=sorted(channels),
-                                 threads=threads)
+                                 thread=thread)
 
 
 @app.route("/")

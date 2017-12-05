@@ -28,19 +28,31 @@
                 <div class="username">{{ message.username }}</div>
                 <a href="#{{ message.id}}"><div class="time">{{ message.time }}</div></a>
                 <div class="msg">{{ message.msg|safe }}</div>
+                {% if message.num_replies > 0 %}
+                  <a href="/channel/{{ name }}/{{ message.ts }}"><div class="reply_count">{{ message.num_replies }} replies</div></a>
+                {% endif %}
             </div>
           </div>
         </div>
         <br/>
     {% endfor %}
 </div>
-<div class="thread" id="col-3">
+<div class="thread messages" id="col-3">
   <span>THREAD</span>
-  {% for thread in threads %}
+  {% for message in thread %}
     <div>
-      <p>{{thread[1][0].msg|safe}}</p>
+      <div id="{{ message.id }}">
+        <img src="{{ message.img }}"/>
+        <div class="message">
+            <div class="username">{{ message.username }}</div>
+            <a href="#{{ message.id}}"><div class="time">{{ message.time }}</div></a>
+            <div class="msg">{{ message.msg|safe }}</div>
+        </div>
+      </div>
     </div>
+    <br/>
   {% endfor %}
+  <!-- Switch to iterating through all threads if I don't want to have to refresh the page each time -->
 </div>
 </body>
 </html>

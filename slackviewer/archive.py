@@ -11,6 +11,9 @@ def get_channel_list(path):
     return [c["name"] for c in get_channels(path).values()]
 
 def is_root_message(message):
+    if 'subtype' in message:
+        if message['subtype'] == "thread_broadcast":
+            return False
     return not 'parent_user_id' in message
 
 def is_in_thread(message):
@@ -33,8 +36,17 @@ def compile_channels(path, user_data, channel_data):
                 for message in day_messages:
                     if is_root_message(message):
                         if is_in_thread(message):
-                            threads[message['ts']] = [Message(user_data, channel_data, message)]
-                        root_messages.append(Message(user_data, channel_data, message))
+                            print channel
+                            print day
+                            print message.keys()
+                            print message['text']
+                            num_replies = 0
+                            if 'reply_count' in message:
+                                num_replies = message['reply_count']
+                            threads[message['ts']] = [Message(user_data, channel_data, message, num_replies)]
+                            root_messages.append(Message(user_data, channel_data, message, num_replies))
+                        else:
+                            root_messages.append(Message(user_data, channel_data, message))
                     else:
                         threads[message['thread_ts']].append(Message(user_data, channel_data, message))
 
