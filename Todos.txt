@@ -1,11 +1,7 @@
 1. no thread div on index route?
-2. somehow doesn't seem to be getting all threads
-3. keep thread thing and channel list as fixed or absolute
-4. right now I am ignoring "thread_broadcasts", where a user replies to something and also shares it to the channel.  I am just treating them like normal replies, and not showing the messages as root_messages (whereas they are treated as root messages in the real slack app)
-
-
-NEXT:
-put a note with how many replies there are under each message with replies
-make it so that note hides or unhides the relevant thread
-https://stackoverflow.com/questions/19886883/show-div-based-on-url
-https://www.google.com/search?q=use+url+to+unhide+element&oq=use+url+to+unhide+element&aqs=chrome..69i57.9299j0j7&sourceid=chrome&ie=UTF-8
+2. somehow doesn't seem to be getting all threads?? (test this somehow?)
+3. right now I am ignoring "thread_broadcasts", where a user replies to something and also shares it to the channel.  I am just treating them like normal replies, and not showing the messages as root_messages (whereas they are treated as root messages in the real slack app)
+4.make it so that note hides or unhides the relevant thread, rather than refreshing the page
+  a. https://stackoverflow.com/questions/19886883/show-div-based-on-url
+  b. https://www.google.com/search?q=use+url+to+unhide+element&oq=use+url+to+unhide+element&aqs=chrome..69i57.9299j0j7&sourceid=chrome&ie=UTF-8
+5. improve styling

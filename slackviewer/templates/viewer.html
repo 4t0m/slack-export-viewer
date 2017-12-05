@@ -29,7 +29,7 @@
                 <a href="#{{ message.id}}"><div class="time">{{ message.time }}</div></a>
                 <div class="msg">{{ message.msg|safe }}</div>
                 {% if message.num_replies > 0 %}
-                  <a href="/channel/{{ name }}/{{ message.ts }}"><div class="reply_count">{{ message.num_replies }} replies</div></a>
+                  <a href="/channel/{{ name }}/{{ message.ts }}#{{ message.id}}"><div class="reply_count">{{ message.num_replies }} replies</div></a>
                 {% endif %}
             </div>
           </div>
@@ -38,7 +38,7 @@
     {% endfor %}
 </div>
 <div class="thread messages" id="col-3">
-  <span>THREAD</span>
+  <h1>Thread View</h1>
   {% for message in thread %}
     <div>
       <div id="{{ message.id }}">

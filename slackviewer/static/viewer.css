@@ -2,23 +2,31 @@
     font-family: sans-serif;
 }
 
-body {
+html, body {
     text-align: center;
     padding: 1em;
-    display: flex;
-    flex-direction: row;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    /*display: flex;
+    flex-direction: row;*/
 }
 
 #col-1 {
-    /*position: fixed;
-    top: 0;
+    float: left;
+    height: 98%;
+    overflow: auto;
+    box-sizing: border-box;
+    /*position: fixed;*/
+    /*top: 0;
     bottom: 0;
     left: 0;
 
     padding-left: 2vw;
     padding-right: 2vw;
     padding-bottom: 2vw;*/
-    width: 200;
+
+    /*width: 200;*/
 
 
     text-align: left;
@@ -37,12 +45,27 @@ body {
 }
 
 #col-2 {
+    float: left;
+    height: 98%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-left: 40px;
+
     /*position: relative;*/
     /*z-index: 1;*/
-    width: 40%;
+    width: 50%;
 }
 
 #col-3 {
+    padding-top: 20px;
+    padding-left: 40px;
+    float: left;
+    height: 98%;
+    overflow: auto;
+    box-sizing: border-box;
+
+
     width: 20%;
     /*position: relative;
     z-index: 4;*/
@@ -50,14 +73,14 @@ body {
 
 .messages {
     width: 100%;
-    max-width: 30vw;
+    /*max-width: 30vw;*/
     text-align: left;
     display: inline-block;
     /* For some reason, this pads from the left of the screen
     as opposed to the right of the #fixed div, so we have a decent-ish 25vw
     padding to cover most screens
     XXX Still a hack though */
-    padding-left: 10vw;
+    /*padding-left: 10vw;*/
 }
 
 .messages img {
@@ -119,4 +142,10 @@ a:active {
 a:hover {
     color: #439fe0;
     text-decoration: underline;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #413839;
 }

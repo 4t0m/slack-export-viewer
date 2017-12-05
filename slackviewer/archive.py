@@ -36,10 +36,6 @@ def compile_channels(path, user_data, channel_data):
                 for message in day_messages:
                     if is_root_message(message):
                         if is_in_thread(message):
-                            print channel
-                            print day
-                            print message.keys()
-                            print message['text']
                             num_replies = 0
                             if 'reply_count' in message:
                                 num_replies = message['reply_count']
