@@ -87,10 +87,10 @@ def extract_archive(filepath):
                     filepath,
                     extracted_path))
                 zip.extractall(path=extracted_path)
-            print("{} extracted to {}.".format(filepath, extracted_path))
-        except OSError, e:
-            if e.errno != os.errno.EEXIST:
-                raise        
+                print("{} extracted to {}.".format(filepath, extracted_path))
+        except OSError ass err:
+            if err.errno != os.errno.EEXIST:
+                raise
         # Add additional file with archive info
         archive_info = {
             "sha1": archive_sha,
