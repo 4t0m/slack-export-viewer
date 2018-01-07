@@ -88,7 +88,7 @@ def extract_archive(filepath):
                     extracted_path))
                 zip.extractall(path=extracted_path)
                 print("{} extracted to {}.".format(filepath, extracted_path))
-        except OSError ass err:
+        except OSError as err:
             if err.errno != os.errno.EEXIST:
                 raise
         # Add additional file with archive info
