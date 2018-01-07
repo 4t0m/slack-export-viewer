@@ -9,8 +9,7 @@ import webbrowser
 import click
 import flask
 
-from slackviewer.app import app
-from slackviewer.archive import \
+from archive import \
     extract_archive, \
     get_users, \
     get_channels, \
