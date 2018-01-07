@@ -43,21 +43,6 @@ def configure_app(app, archive):
     top = flask._app_ctx_stack
     top.channels = channels
 
-def main(port, archive, ip, no_browser, debug):
-    if not archive:
-        raise ValueError("Empty path provided for archive")
-
-    configure_app(app, archive, debug)
-
-    if not no_browser:
-        webbrowser.open("http://{}:{}".format(ip, port))
-
-    app.run(
-        host=ip,
-        port=port
-    )
-
-
 
 ######################## HAXXXXX
 
