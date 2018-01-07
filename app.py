@@ -78,9 +78,10 @@ def channel_thread(name, thread_id):
 
 @app.route("/")
 def index():
-    channels = list(flask._app_ctx_stack.channels.keys())
-    if "general" in channels:
-        flask.redirect("/channel/general", code=302)
-        # return channel_name("general")
-    else:
-        return channel_name(channels[0])
+    return flask.redirect("/channel/general", code=302)
+    # channels = list(flask._app_ctx_stack.channels.keys())
+    # if "general" in channels:
+    #     # return channel_name("general")
+    #
+    # else:
+    #     return channel_name(channels[0])
