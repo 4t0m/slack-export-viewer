@@ -4,7 +4,7 @@ import os
 import zipfile
 import glob
 
-from slackviewer.message import Message
+from message import Message
 
 
 def get_channel_list(path):
