@@ -9,10 +9,11 @@ import markdown2
 
 
 class Message(object):
-    def __init__(self, USER_DATA, CHANNEL_DATA, message):
+    def __init__(self, USER_DATA, CHANNEL_DATA, message, num_replies=0):
         self.__USER_DATA = USER_DATA
         self.__CHANNEL_DATA = CHANNEL_DATA
         self._message = message
+        self._num_replies = num_replies
 
     ##############
     # Properties #
@@ -84,6 +85,14 @@ class Message(object):
     @property
     def id(self):
         return self.time
+
+    @property
+    def num_replies(self):
+        return self._num_replies
+
+    @property
+    def ts(self):
+        return self._message["ts"]
 
     ###################
     # Private Methods #
